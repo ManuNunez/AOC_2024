@@ -29,7 +29,7 @@ fn is_safe_report(report: &Vec<i32>) -> bool {
     for window in report.windows(2) {
         let diff = (window[1] - window[0]).abs();
         if diff < 1 || diff > 3 {
-            return false; // Si la diferencia no está entre 1 y 3, no es seguro
+            return false;
         }
         if window[1] > window[0] {
             increasing = true;
@@ -38,7 +38,7 @@ fn is_safe_report(report: &Vec<i32>) -> bool {
         }
     }
 
-    // Un reporte es seguro si es solo creciente o solo decreciente, no ambos.
+   
     increasing != decreasing
 }
 

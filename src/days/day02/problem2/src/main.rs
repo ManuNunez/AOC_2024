@@ -25,7 +25,7 @@ fn is_safe_report(report: &Vec<i32>) -> bool {
     let mut increasing = false;
     let mut decreasing = false;
 
-    // Check if the report is already safe (either increasing or decreasing)
+   
     for window in report.windows(2) {
         let diff = (window[1] - window[0]).abs();
         if diff < 1 || diff > 3 {
@@ -42,7 +42,6 @@ fn is_safe_report(report: &Vec<i32>) -> bool {
 }
 
 fn can_be_safe_by_removal(report: &Vec<i32>) -> bool {
-    // Try removing each level and check if the resulting report is safe
     for i in 0..report.len() {
         let mut modified_report = report.clone();
         modified_report.remove(i);
@@ -57,7 +56,6 @@ fn solve(reports: &Vec<Vec<i32>>) -> i32 {
     let mut safe_count = 0;
 
     for report in reports {
-        // Check if the report is safe directly or can become safe by removing one level
         if is_safe_report(report) || can_be_safe_by_removal(report) {
             safe_count += 1;
         }
